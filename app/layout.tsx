@@ -1,3 +1,4 @@
+import Link from "next/link"
 import "./globals.css"
 import { Inter } from "next/font/google"
 
@@ -8,14 +9,40 @@ export const metadata = {
   description: "App for Taking Care of Your Pet",
 }
 
+const navLinks = [
+  {
+    href: "/",
+    label: "Home",
+  },
+  {
+    href: "/profile",
+    label: "Profile",
+  },
+  {
+    href: "/pets",
+    label: "Pets",
+  },
+]
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <div>
+      <header>
+        <nav>
+          <ul className="flex items-center">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href}>
+                {link.label}
+              </Link>
+            ))}
+          </ul>
+        </nav>
+      </header>
+      <div className={inter.className}>{children}</div>
+    </div>
   )
 }
