@@ -1,6 +1,7 @@
+import Pet from "@/app/components/Pet"
+
 const PetPage = ({ params }) => {
-  console.log(params)
-  return <div>Pet: {params.name[0]}</div>
+  return <Pet name={params.name[0]}></Pet>
 }
 
 export default PetPage

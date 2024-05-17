@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Pets from "../components/Pets"
 
 const petsLinks = [
   {
@@ -12,15 +12,7 @@ const petsLinks = [
 ]
 
 const PetsPage = () => {
-  return (
-    <div>
-      {petsLinks.map((link) => (
-        <Link key={link.href} href={`/pets/${link.href}`}>
-          {link.label}
-        </Link>
-      ))}
-    </div>
-  )
+  return <Pets petsLinks={petsLinks}></Pets>
 }
 
 export default PetsPage
