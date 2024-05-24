@@ -17,6 +17,9 @@ const Nav = styled.nav`
   top: 0;
   background: #0a4431;
   padding: 15px 10px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `
 
 const Ul = styled.ul`
@@ -42,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({ navLinks }) => {
       <Ul>
         {navLinks.map((link) => (
           <Li key={link.href}>
-            <Link href={link.href} passHref>
+            <Link href={link.href} passHref legacyBehavior>
               <StyledLink>{link.label}</StyledLink>
             </Link>
           </Li>
