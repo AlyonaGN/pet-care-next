@@ -1,6 +1,8 @@
 import StyledComponentsRegistry from "@/lib/registry"
 import GlobalStyles from "@/styles/GlobalStyles"
 import { Inter } from "next/font/google"
+import { Header } from "./components/Header"
+import { navLinks } from "./utils"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -19,7 +21,10 @@ export default function RootLayout({
       <body>
         <GlobalStyles />
         <StyledComponentsRegistry>
-          <div className={inter.className}>{children}</div>
+          <div className={inter.className}>
+            {" "}
+            <Header navLinks={navLinks} /> {children}
+          </div>
         </StyledComponentsRegistry>
       </body>
     </html>
