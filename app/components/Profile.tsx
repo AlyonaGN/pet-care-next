@@ -57,7 +57,9 @@ const Profile: React.FC = () => {
   const [surname, setSurname] = useState<string>("")
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
-  const [petPreference, setPetPreference] = useState<string>("dog")
+  const [petPreference, setPetPreference] = useState<PetPreference>(
+    PetPreference.DOG
+  )
 
   const handleProfilePictureChange = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -110,11 +112,11 @@ const Profile: React.FC = () => {
         />
         <Select
           value={petPreference}
-          onChange={(e) => setPetPreference(e.target.value)}
+          onChange={(e) => setPetPreference(e.target.value as PetPreference)}
         >
-          <option value="dog">Dog Lover</option>
-          <option value="cat">Cat Lover</option>
-          <option value="other">Other</option>
+          <option value={PetPreference.DOG}>Dog Lover</option>
+          <option value={PetPreference.CAT}>Cat Lover</option>
+          <option value={PetPreference.OTHER}>Other</option>
         </Select>
       </ProfileCard>
     </ProfileContainer>
